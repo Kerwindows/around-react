@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import edit from "../images/edit.svg";
 import vector from "../images/Vector.svg";
-import imagePlaceholder from "../images/blank-user.jpg";
+import userAvatar from "../images/blank-user.jpg";
 import plusSign from "../images/plus-sign.svg";
+import Card from "./Card";
 
-function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick }) {
+function Main({
+  onEditAvatarClick,
+  onEditProfileClick,
+  onAddPlaceClick,
+  onCardClick,
+  userAvatar,
+  userAbout,
+  userName,
+  cards
+}) {
   return (
     <>
       <main className="main">
         <section className="profile">
           <div className="profile__image-container">
-            <img
-              className="profile__image"
-              src={imagePlaceholder}
-              alt="Person"
-            />
+            <img className="profile__image" src={userAvatar} alt="Person" />
             <div className="profile__image-edit">
               <button
                 onClick={onEditAvatarClick}
@@ -30,7 +36,7 @@ function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick }) {
           </div>
           <div className="profile__edit-column">
             <div className="profile__edit">
-              <h1 className="profile__edit-name"></h1>
+              <h1 className="profile__edit-name">{userName}</h1>
               <button
                 onClick={onEditProfileClick}
                 className="profile__edit-btn"
@@ -43,7 +49,7 @@ function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick }) {
                 />
               </button>
             </div>
-            <p className="profile__about-me"></p>
+            <p className="profile__about-me">{userAbout}</p>
           </div>
 
           <button
@@ -59,10 +65,22 @@ function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick }) {
           </button>
         </section>
         <section className="cards">
-          <ul className="cards__list"></ul>
-          <div className="cards__no-places">
-            <p className="cards__no-places-text">No images to display</p>
-          </div>
+          <ul className="cards__list">
+            {cards.map((card) => (
+              <Card
+                onCardClick={onCardClick}
+                card={card}
+                key={card._id}
+                link={card.link}
+                title={card.name}
+                alt={card.name}
+                ownerId={card.owner._id}
+                imageId={card._id}
+                likes={card.likes}
+                likeCount={card.likes.length}
+              />
+            ))}
+          </ul>
         </section>
       </main>
     </>
