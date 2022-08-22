@@ -23,7 +23,7 @@ function App() {
     <>
       <div className="page">
         <Header />
-        <Main />
+        <Main handleEditProfileClick={handleEditProfileClick}/>
         <Footer />
       </div>
 

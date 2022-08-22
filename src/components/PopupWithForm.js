@@ -13,7 +13,7 @@ function PopupWithForm({
   }) {
 
       return (
-        <div id={name} className="popup">
+        <div id={name} className ={`popup ${isOpen && 'popup_opened'}`}>
             <div className="popup__overlay"></div>
                 <div className="popup__form-card">
                 <button
