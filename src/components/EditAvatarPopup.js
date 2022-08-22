@@ -4,27 +4,25 @@ import PopupWithForm from "./PopupWithForm";
 
 /* ------------------------ function EditProfilePopup ----------------------- */
 
-function EditProfilePopup({ isOpen, onClose}) {
-
-
+function EditProfilePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       isOpen={isOpen}
       onClose={onClose}
       name="edit-profile"
       title="Change profile picture"
+      submitText="Save"
     >
-    <input
-              id="js-input-edit-profile-pic-input"
-              className="popup__form-input js-input-type-edit-profile-pic"
-              name="avatar"
-              type="url"
-              placeholder="Url Link"
-              required
-            />
+      <input
+        id="js-input-edit-profile-pic-input"
+        className="popup__form-input js-input-type-edit-profile-pic"
+        name="avatar"
+        type="url"
+        placeholder="Url Link"
+        required
+      />
     </PopupWithForm>
   );
 }
 
 export default EditProfilePopup;
-

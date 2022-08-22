@@ -14,7 +14,10 @@ function Popups() {
           >
             <img className="popup__close-icon" src={closeIcon} alt="close" />
           </button>
-          <form className="popup__edit-profile-form popup__form" name="edit-ProfileForm">
+          <form
+            className="popup__edit-profile-form popup__form"
+            name="edit-ProfileForm"
+          >
             <h2 className="popup__form-label">Edit Profile</h2>
             <input
               id="name-input"
@@ -119,7 +122,10 @@ function Popups() {
           >
             <img className="popup__close-icon" src={closeIcon} alt="close" />
           </button>
-          <form className="popup__confirmation-form popup__form" name="confirmationCard">
+          <form
+            className="popup__confirmation-form popup__form"
+            name="confirmationCard"
+          >
             <h2 className="popup__form-label popup__form-label-confirmation-confirmation">
               Are you sure?
             </h2>
