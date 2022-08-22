@@ -1,5 +1,6 @@
 /* --------------------------------- imports -------------------------------- */
 import React from "react";
+import closeIcon from '../images/close-icon.svg';
 
 /* ------------------------- function PopupWIthForm ------------------------- */
 function PopupWithForm({
@@ -12,7 +13,6 @@ function PopupWithForm({
   }) {
 
       return (
-      <PopupWithForm isOpen={isOpen} onClose={onClose} name={name}>
         <div id={name} className="popup">
             <div className="popup__overlay"></div>
                 <div className="popup__form-card">
@@ -37,7 +37,6 @@ function PopupWithForm({
           </form>
         </div>
       </div>
-      </PopupWithForm>
     );
   }
   export default PopupWithForm;

@@ -11,10 +11,8 @@ function EditProfilePopup({ isOpen, onClose}) {
     <PopupWithForm
       isOpen={isOpen}
       onClose={onClose}
-      onSubmit={handleSubmit}
       name="edit-profile"
       title="Edit profile"
-      submitText={isLoading ? "Saving" : "Save"}
     >
     <input id="name-input" minlength="2" maxlength="40" class="popup__form-input js-input-type-profile-name"
                     name="name" type="text" placeholder="Name" required /><span
