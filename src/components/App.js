@@ -45,12 +45,18 @@ function App() {
         onClose={closeAllPopups}
       />
 
-      <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+      <AddPlacePopup 
+      isOpen={isAddPlacePopupOpen} 
+      onClose={closeAllPopups} 
+      />
 
       <EditAvatarPopup
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       />
+
+      <ImagePopup  isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
+
     </>
   );
 }
