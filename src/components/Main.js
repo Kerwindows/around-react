@@ -6,9 +6,9 @@ import plusSign from '../images/plus-sign.svg';
 
 
 function Main({
-  handleEditAvatarClick,
-  handleEditProfileClick,
-  handleAddPlaceClick}) {
+  onEditAvatarClick,
+  onEditProfileClick,
+  onAddPlaceClick}) {
     return (
       <>
         <main className="main">
@@ -16,7 +16,7 @@ function Main({
                 <div className="profile__image-container">
                     <img className="profile__image" src={imagePlaceholder} alt="Person" />
                     <div className="profile__image-edit">
-                        <button onClick={handleEditAvatarClick} className="profile__image-edit-btn">
+                        <button onClick={onEditAvatarClick} className="profile__image-edit-btn">
                             <img className="profile__image-edit-icon" src={vector} alt="Edit icon" />
                         </button>
                     </div>
@@ -24,14 +24,14 @@ function Main({
                 <div className="profile__edit-column">
                     <div className="profile__edit">
                         <h1 className="profile__edit-name"></h1>
-                        <button onClick={handleEditProfileClick} className="profile__edit-btn" type="button">
+                        <button onClick={onEditProfileClick} className="profile__edit-btn" type="button">
                             <img className="profile__edit-icon" src={edit} alt="Edit button" />
                         </button>
                     </div>
                     <p className="profile__about-me"></p>
                 </div>
 
-                <button onClick={handleAddPlaceClick} className="profile__add-places-btn" type="button">
+                <button onClick={onAddPlaceClick} className="profile__add-places-btn" type="button">
                     <img className="profile__add-places-icon" src={plusSign} alt="Add place" />
                 </button>
             </section>
