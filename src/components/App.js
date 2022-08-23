@@ -31,6 +31,7 @@ function App() {
   }
 
   function handleCardClick(clickedCard) {
+    console.log("handleCardClick", handleCardClick);
     setSelectedCard(clickedCard);
   }
 

@@ -2,9 +2,9 @@ import React from "react";
 import closeIcon from "../images/close-icon.svg";
 import loader from "../images/loader.png";
 
-function ImagePopup({ isOpen, onClose }) {
+function ImagePopup({ onClose, card }) {
   return (
-    <div className={`popup ${isOpen && "popup_opened"}`}>
+    <div className={`popup ${card && "popup_opened"}`}>
       <div className="popup__overlay"></div>
       <div className="popup__form-card popup__form-image">
         <button
@@ -15,8 +15,12 @@ function ImagePopup({ isOpen, onClose }) {
         >
           <img className="popup__close-icon" src={closeIcon} alt="close" />
         </button>
-        <img className="popup__card-image-preview" src={loader} alt="preview" />
-        <p className="popup__card-image-preview-name">loading...</p>
+        <img
+          className="popup__card-image-preview"
+          src={card && card.link}
+          alt="preview"
+        />
+        <p className="popup__card-image-preview-name">{card && card.name}</p>
       </div>
     </div>
   );

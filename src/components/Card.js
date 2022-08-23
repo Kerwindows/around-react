@@ -4,10 +4,19 @@ import PopupWithForm from "./PopupWithForm";
 import trash from "../images/Trash.svg";
 /* ------------------------ function EditProfilePopup ----------------------- */
 
-function Card({ card, link, name, title, likeCount, onCardClick }) {
+function Card({
+  card,
+  link,
+  name,
+  title,
+  likeCount,
+  onCardClick,
+  userName,
+  selectedCard
+}) {
   function handleCardClick() {
+    console.log("clicked");
     onCardClick(card);
-    console.log(card);
   }
 
   return (
