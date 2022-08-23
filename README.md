@@ -3,7 +3,7 @@
 ### Overview
 
 - Intro
-- Project Features  and Technologies
+- Project Features and Technologies
 - Project Features
 - Figma Canvas
 - Link to Github Project
@@ -41,4 +41,3 @@ This code was refactored to implement React.
 https://kerwindows.github.io/around-react/ - post REACT
 
 **Improvements**
-
