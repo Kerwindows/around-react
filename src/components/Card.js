@@ -15,7 +15,6 @@ function Card({
   selectedCard
 }) {
   function handleCardClick() {
-    console.log("clicked");
     onCardClick(card);
   }
 

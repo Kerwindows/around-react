@@ -13,9 +13,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [userName, setUserName] = useState(null);
-  const [userAbout, setuserAbout] = useState(null);
-  const [userAvatar, setUserAvatar] = useState(null);
+  const [user, setUser] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
 
   const [cards, setCards] = useState([]);
@@ -31,7 +29,6 @@ function App() {
   }
 
   function handleCardClick(clickedCard) {
-    console.log("handleCardClick", handleCardClick);
     setSelectedCard(clickedCard);
   }
 
@@ -47,11 +44,11 @@ function App() {
     api
       .getUser()
       .then((userData) => {
-        setUserName(userData.name);
-        setuserAbout(userData.about);
-        setUserAvatar(userData.avatar);
+        setUser(userData);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -72,9 +69,9 @@ function App() {
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
           onCardClick={handleCardClick}
-          userName={userName}
-          userAbout={userAbout}
-          userAvatar={userAvatar}
+          userName={user.name}
+          userAbout={user.about}
+          userAvatar={user.avatar}
           cards={cards}
         />
         <Footer />
