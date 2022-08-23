@@ -13,7 +13,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({ name: "", about: "", avatar: ""})
   const [selectedCard, setSelectedCard] = useState(null);
 
   const [cards, setCards] = useState([]);
@@ -57,7 +57,9 @@ function App() {
       .then((initialCards) => {
         setCards(initialCards);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
