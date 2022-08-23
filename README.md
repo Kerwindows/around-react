@@ -23,8 +23,8 @@ This code was refactored to implement React.
 - Javascript
   - querySelect
   - Functional components
-  - templates
-  - destructuring
+  - Templates
+  - Destructuring
 - Webpack
 - Node Package Manager
 - Apis
