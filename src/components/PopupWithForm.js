@@ -34,5 +34,3 @@ function PopupWithForm({ isOpen, onClose, name, title, children, submitText }) {
   );
 }
 export default PopupWithForm;
-
-//className={`popup__close-btn popup__edit-close-btn`
