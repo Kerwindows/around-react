@@ -46,6 +46,7 @@
 	background-image: url(../images/heart.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
+	background-color: white;
 	min-width: 21px;
 	height: 19px;
 	-webkit-transition: 0.2s;
@@ -73,6 +74,13 @@
 	border: none;
 	transition: 0.3s;
 }
+.card__trash_visible {
+	visibility: visible;
+  }
+  
+.card__trash_hidden {
+	visibility: hidden;
+  }
 
 .card__trash:hover {
 	cursor: pointer;

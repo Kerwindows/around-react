@@ -3,30 +3,32 @@ import React from "react";
 import closeIcon from "../images/close-icon.svg";
 
 /* ------------------------- function PopupWIthForm ------------------------- */
-function PopupWithForm({ isOpen, onClose, name, title, children, submitText }) {
+function PopupWithForm(props) {
   return (
-    <div id={name} className={`popup ${isOpen && "popup_opened"}`}>
+    <div id={props.name} className={`popup ${props.isOpen && "popup_opened"}`}>
       <div className="popup__overlay"></div>
       <div className="popup__form-card">
         <button
-          onClick={onClose}
+          onClick={props.onClose}
           aria-label="Close Form Button"
           type="button"
-          className={`popup__close-btn popup__${name}-close-btn`}
+          className={`popup__close-btn popup__${props.name}-close-btn`}
         >
           <img className="popup__close-icon" src={closeIcon} alt="close" />
         </button>
-        <form
-          className={`popup___${name}-pic-form popup__form`}
-          name={`${name}Form`}
+        <form 
+        id={props.name}  
+        onSubmit={props.onSubmit}
+          className={`popup__${props.name}-form popup__form`}
+          name={`${props.name}Form`}
         >
-          <h2 className="popup__form-label">{title}</h2>
-          {children}
+          <h2 className="popup__form-label">{props.title}</h2>
+          {props.children}
           <span
-            className={`popup__input-type-error js-input-_${name}-pic-input-error`}
+            className={`popup__input-type-error js-input-${props.name}-pic-input-error`}
           ></span>
           <button className="popup__button" type="submit">
-            {submitText}
+            {props.submitText}
           </button>
         </form>
       </div>

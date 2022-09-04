@@ -4,14 +4,26 @@ import PopupWithForm from "./PopupWithForm";
 
 /* ------------------------ function EditProfilePopup ----------------------- */
 
-function EditProfilePopup({ isOpen, onClose }) {
+function EditAvatarPopup(props) {
+  const inputRef = React.useRef();
+ 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    props.onUpdateAvatar({
+      avatar: inputRef.current.value,
+    });
+  }
+
   return (
     <PopupWithForm
-      isOpen={isOpen}
-      onClose={onClose}
-      name="edit-profile"
+    name="edit-profile-pic"
       title="Change profile picture"
-      submitText="Save"
+      submitText={props.isLoading ? "Saving..." : "Save"}
+    isOpen={props.isOpen}
+    onClose={props.onClose}
+      
+      onSubmit={handleSubmit}
     >
       <input
         id="js-input-edit-profile-pic-input"
@@ -25,4 +37,4 @@ function EditProfilePopup({ isOpen, onClose }) {
   );
 }
 
-export default EditProfilePopup;
+export default EditAvatarPopup;

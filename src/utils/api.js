@@ -14,24 +14,24 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
+      headers: this._headers,
     }).then((res) => this._handleResponse(res));
   }
 
   getUser() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
     }).then((res) => this._handleResponse(res));
   }
 
-  setUserInfo({ name, about }) {
+  setUserInfo({ name, description }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name: name,
-        about: about
-      })
+        about: description,
+      }),
     }).then((res) => this._handleResponse(res));
   }
 
@@ -41,17 +41,26 @@ class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: name,
-        link: link
-      })
+        link: link,
+      }),
     }).then((res) => this._handleResponse(res));
   }
 
+
+   removeCardLike(id) {
+      return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+        method: "DELETE",
+        headers: this._headers
+      })
+        .then((res) => this._checkRes(res))
+    }
+
   deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers
-    }).then((res) => this._handleResponse(res));
-  }
+      return fetch(`${this._baseUrl}/cards/${cardId}`, {
+        method: "DELETE",
+        headers: this._headers
+      }).then((res) => this._handleResponse(res));
+    }
 
   toggleLike(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {

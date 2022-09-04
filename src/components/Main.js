@@ -1,29 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import edit from "../images/edit.svg";
 import vector from "../images/Vector.svg";
 import userAvatar from "../images/blank-user.jpg";
 import plusSign from "../images/plus-sign.svg";
 import Card from "./Card";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({
-  onEditAvatarClick,
-  onEditProfileClick,
-  onAddPlaceClick,
-  onCardClick,
-  userAvatar,
-  userAbout,
-  userName,
-  cards
-}) {
+function Main(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
       <main className="main">
         <section className="profile">
           <div className="profile__image-container">
-            <img className="profile__image" src={userAvatar} alt="Person" />
+            <img
+              className="profile__image"
+              src={currentUser.avatar || userAvatar}
+              alt="Person"
+            />
             <div className="profile__image-edit">
               <button
-                onClick={onEditAvatarClick}
+                onClick={props.onEditAvatarClick}
                 className="profile__image-edit-btn"
               >
                 <img
@@ -36,9 +33,9 @@ function Main({
           </div>
           <div className="profile__edit-column">
             <div className="profile__edit">
-              <h1 className="profile__edit-name">{userName}</h1>
+              <h1 className="profile__edit-name">{currentUser.name}</h1>
               <button
-                onClick={onEditProfileClick}
+                onClick={props.onEditProfileClick}
                 className="profile__edit-btn"
                 type="button"
               >
@@ -49,11 +46,11 @@ function Main({
                 />
               </button>
             </div>
-            <p className="profile__about-me">{userAbout}</p>
+            <p className="profile__about-me">{currentUser.about}</p>
           </div>
 
           <button
-            onClick={onAddPlaceClick}
+            onClick={props.onAddPlaceClick}
             className="profile__add-places-btn"
             type="button"
           >
@@ -66,18 +63,20 @@ function Main({
         </section>
         <section className="cards">
           <ul className="cards__list">
-            {cards.map((card) => (
+            {props.cards.map((card) => (
               <Card
-                onCardClick={onCardClick}
-                card={card}
-                key={card._id}
-                link={card.link}
-                title={card.name}
-                alt={card.name}
-                ownerId={card.owner._id}
-                imageId={card._id}
-                likes={card.likes}
-                likeCount={card.likes.length}
+              key={card._id}
+              card={card}
+              onCardClick={props.onCardClick}
+              onCardLike={props.onCardLike}
+              onCardDelete={props.onCardDelete}
+                // link={card.link}
+                // title={card.name}
+                // alt={card.name}
+                // ownerId={card.owner._id}
+                // imageId={card._id}
+                // likes={card.likes}
+                // likeCount={card.likes.length}
               />
             ))}
           </ul>

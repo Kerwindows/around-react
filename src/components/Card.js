@@ -1,43 +1,63 @@
 /* --------------------------------- imports -------------------------------- */
 import React from "react";
-import PopupWithForm from "./PopupWithForm";
 import trash from "../images/Trash.svg";
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
+
 /* ------------------------ function EditProfilePopup ----------------------- */
 
-function Card({
-  card,
-  link,
-  name,
-  title,
-  likeCount,
-  onCardClick,
-  userName,
-  selectedCard
-}) {
-  function handleCardClick() {
+
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
+  const currentUser = React.useContext(CurrentUserContext);
+
+  // Checking if the current user is the owner of the current card
+  const isOwn = card.owner._id === currentUser._id;
+
+  // Creating a variable for the delete button
+  const cardDeleteButtonClassName = `card__trash ${
+    isOwn ? "card__trash_visible" : " hide"
+  }`;
+
+  // Check if the card was liked by the current user
+  const isLiked = card.likes.some((user) => user._id === currentUser._id);
+
+  // Creating a variable for the like button
+  const cardLikeButtonClassName = `card__place-favorite ${
+    isLiked ? "card__place-favorite_active" : ""
+  }`;
+
+  function handleClick() {
     onCardClick(card);
   }
+
+  function handleLikeClick() {
+    onCardLike(card);
+  }
+
+  function handleCardDelete() {
+    onCardDelete(card);
+  }
+
 
   return (
     <li className="card">
       <img
-        onClick={handleCardClick}
+        onClick={handleClick}
         className="card__image"
-        src={link}
-        alt={name}
+        src={card.link}
+        alt=''
       />
-      <button className="card__trash">
+      <button className={cardDeleteButtonClassName} onClick={handleCardDelete} aria-label="Delete card">
         <img
-          className="card__trash-image hide"
+          className="card__trash-image"
           src={trash}
-          alt={`Delete ${link}`}
+          alt={`Delete ${card.name}`}
         />
       </button>
       <div className="card__place-title">
-        <h2 className="card__place-name">{title}</h2>
+        <h2 className="card__place-name">{card.name}</h2>
         <div className="card__place-container">
-          <button type="button" className="card__place-favorite"></button>
-          <p className="card__place-num">{likeCount}</p>
+          <button onClick={handleLikeClick} type="button" className={cardLikeButtonClassName}  aria-label="Like this"></button>
+          <p className="card__place-num">{card.likes.length}</p>
         </div>
       </div>
     </li>
