@@ -37,7 +37,6 @@ This code was refactored to implement React.
 - [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
 **Link to Github Project**
-
-https://kerwindows.github.io/around-react/ - post REACT
+- [View Live](https://kerwindows.github.io/around-react/)
 
 **Improvements**
