@@ -5,7 +5,8 @@ import PopupWithForm from "./PopupWithForm";
 /* ------------------------ function EditProfilePopup ----------------------- */
 
 function EditAvatarPopup(props) {
-  const avatarRef = React.useRef();
+  const avatarRef = React.useRef(null);
+  console.log(avatarRef);
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -25,6 +26,7 @@ function EditAvatarPopup(props) {
       onSubmit={handleSubmit}
     >
       <input
+        ref={avatarRef}
         id="js-input-edit-profile-pic-input"
         className="popup__form-input js-input-type-edit-profile-pic"
         name="avatar"
