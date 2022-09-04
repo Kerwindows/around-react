@@ -79,7 +79,7 @@ class Api {
   }
 }
 
-export const api = new Api({
+export default const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
     authorization: "388e1377-9ab5-4db7-9c4c-d98eb5bc0391",
