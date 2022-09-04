@@ -14,7 +14,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
   // Creating a variable for the delete button
   const cardDeleteButtonClassName = `card__trash ${
-    isOwn ? "card__trash_visible" : "hide"
+    isOwn ? "card__trash_visible" : "card__trash_hidden"
   }`;
 
   // Check if the card was liked by the current user
