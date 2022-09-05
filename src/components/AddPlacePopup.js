@@ -4,42 +4,43 @@ import PopupWithForm from "./PopupWithForm";
 
 /* ------------------------ function EditProfilePopup ----------------------- */
 
-function AddPlacePopup(props) {
-  const [name, setName] = React.useState("");
-  const [link, setLink] = React.useState("");
 
-  React.useEffect(() => {
-    setName("");
-    setLink("");
-  }, [props.isOpen]);
-
-  function handleNameChange(evt) {
-    setName(evt.target.value);
-  }
-
-  function handleLinkChange(evt) {
-    setLink(evt.target.value);
-  }
-
-  function handleSubmit(e) {
-    // Prevent the browser from navigating to the form address
-    e.preventDefault();
-
-    // Pass the values of the managed components to the external handler
-    props.onAddPlaceSubmit({
-      name,
-      link
-    });
-  }
-
+  function AddPlacePopup(props) {
+    const [name, setName] = React.useState("");
+    const [link, setLink] = React.useState("");
+  
+    React.useEffect(() => {
+      setName("");
+      setLink("");
+    }, [props.isOpen]);
+  
+    function handleNameChange(evt) {
+      setName(evt.target.value);
+    }
+  
+    function handleLinkChange(evt) {
+      setLink(evt.target.value);
+    }
+  
+    function handleSubmit(e) {
+      // Prevent the browser from navigating to the form address
+      e.preventDefault();
+  
+      // Pass the values of the managed components to the external handler
+      props.onAddPlaceSubmit({
+        name,
+        link,
+      });
+    }
+  
   return (
     <PopupWithForm
-      name="add-place"
-      title="Add Place"
-      submitText={props.isLoading ? "Saving..." : "Create"}
-      isOpen={props.isOpen}
-      onClose={props.onClose}
-      onSubmit={handleSubmit}
+    name="add-place"
+    title="Add Place"
+    submitText={props.isLoading ? "Saving..." : "Create"}
+    isOpen={props.isOpen}
+    onClose={props.onClose}
+    onSubmit={handleSubmit}
     >
       <input
         id="js-input-place-name-input"

@@ -18,8 +18,7 @@ function ImagePopup({ onClose, card }) {
         <img
           className="popup__card-image-preview"
           src={(card && card.link) || {loader}}
-          alt={card.name}
-        />
+          alt={card ? card.name : ""}        />
         <p className="popup__card-image-preview-name">{card && card.name}</p>
       </div>
     </div>
