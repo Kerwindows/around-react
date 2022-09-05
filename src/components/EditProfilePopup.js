@@ -28,13 +28,13 @@ function EditProfilePopup(props) {
   function handleSubmit(evt) {
     // Prevent the browser from navigating to the form address
     evt.preventDefault();
-  
+
     // Pass the values of the managed components to the external handler
     props.onUpdateUser({
       name,
-      description,
+      description
     });
-  } 
+  }
 
   return (
     <PopupWithForm
@@ -52,7 +52,7 @@ function EditProfilePopup(props) {
         className="popup__form-input js-input-type-profile-name"
         name="name"
         type="text"
-        placeholder="Name" 
+        placeholder="Name"
         onChange={handleNameChange}
         value={name || ""}
         required
@@ -68,7 +68,7 @@ function EditProfilePopup(props) {
         type="text"
         placeholder="About Me"
         onChange={handleDescChange}
-          value={description || ""}
+        value={description || ""}
         required
       />
       <span className="popup__input-type-error about-input-error"></span>

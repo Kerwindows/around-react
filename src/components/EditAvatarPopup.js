@@ -9,18 +9,17 @@ function EditAvatarPopup(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onUpdateAvatar({
-      avatar: avatarRef.current.value,
+      avatar: avatarRef.current.value
     });
   }
 
   return (
     <PopupWithForm
-    name="edit-profile-pic"
+      name="edit-profile-pic"
       title="Change profile picture"
       submitText={props.isLoading ? "Saving..." : "Save"}
-    isOpen={props.isOpen}
-    onClose={props.onClose}
-      
+      isOpen={props.isOpen}
+      onClose={props.onClose}
       onSubmit={handleSubmit}
     >
       <input

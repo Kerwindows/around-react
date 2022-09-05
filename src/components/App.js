@@ -16,9 +16,10 @@ function App() {
 
   // hooks for opening/closing popups
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-  React.useState(false);
+    React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
+    React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [cards, setCards] = React.useState([]);
 
@@ -69,11 +70,11 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
-      .catch((err) => {
-        console.log(err);
-      })
       .then(() => {
         closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -87,11 +88,11 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
-      .catch((err) => {
-        console.log(err);
-      })
       .then(() => {
         closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .finally(() => {
         setIsLoading(false);

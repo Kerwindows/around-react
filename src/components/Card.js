@@ -4,8 +4,6 @@ import trash from "../images/Trash.svg";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 /* ------------------------ function EditProfilePopup ----------------------- */
-
-
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
 

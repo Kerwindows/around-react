@@ -16,7 +16,7 @@ This code was refactored to implement React.
 **Project Features and Technologies**
 
 - CSS | Flexbox
-- CSS |Grid
+- CSS | Grid
 - Pop up forms
 - Hover Elements
 - Responsive Design
@@ -37,6 +37,7 @@ This code was refactored to implement React.
 - [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
 **Link to Github Project**
+
 - [View Live](https://kerwindows.github.io/around-react/)
 
 **Improvements**

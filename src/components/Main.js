@@ -65,18 +65,11 @@ function Main(props) {
           <ul className="cards__list">
             {props.cards.map((card) => (
               <Card
-              key={card._id}
-              card={card}
-              onCardClick={props.onCardClick}
-              onCardLike={props.onCardLike}
-              onCardDelete={props.onCardDelete}
-                // link={card.link}
-                // title={card.name}
-                // alt={card.name}
-                // ownerId={card.owner._id}
-                // imageId={card._id}
-                // likes={card.likes}
-                // likeCount={card.likes.length}
+                key={card._id}
+                card={card}
+                onCardClick={props.onCardClick}
+                onCardLike={props.onCardLike}
+                onCardDelete={props.onCardDelete}
               />
             ))}
           </ul>
