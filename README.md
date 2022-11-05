@@ -11,7 +11,6 @@
 
 **Intro**
 This is a project that creates a social media type platform similar to Instagram with the ability to like photos/places. This project is the enhanced version of project 4 [Around the US](https://github.com/Kerwindows/web_project_4) . Built using React.
-This code was refactored to implement React.
 
 **Project Features and Technologies**
 
